@@ -9,7 +9,15 @@ attribute artist/s where possible,
 no re-mix without permission.
 ```
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+
+Code | Description
+--------------------- | -------------
+```
+
+```
+| Comments
+
+```
+
+```
+ | Comments 2
