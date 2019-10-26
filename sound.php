@@ -1,18 +1,16 @@
 <!doctype html>
 <html>
 <head>
-	
-	  <?php   $song = strip_tags($_GET[song]);
+
+```php	
+<?php   $song = strip_tags($_GET[song]);
   
   
-					$imagesize = 300;
-					$size = 0;
-					//Number of columns plus one
-					//$columnnum2="3";//landscape
-					//$columnnum="3";
-					
+	$imagesize = 300;
+	$size = 0;				
 
 ?> 
+	```
 <meta charset="utf-8">
 <title>Audio Player</title>
 </head>
