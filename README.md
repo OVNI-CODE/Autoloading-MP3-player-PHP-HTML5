@@ -1,6 +1,6 @@
 # Autoloading-MP3-player-PHP-HTML5
 >Code snippet of an Mp3 player for use on websites<br>
-Uses .PHP & HTML5 linked with javascript code to move the php variable containing the list of .mp3 file locations to the JS playlist. Audio player uses HTML5 uses the <audio> tag.
+
   
 
 * Check out the demo at https://www.snakebeings.org/GitHubDemo <br>
@@ -13,6 +13,10 @@ FEATURES:
 *Update or add to the playlist by adding more .mp3 files into the directory on your website<br>
 *The filename, minus the .mp3 extention, is displayed as the track title<br>
 
+Uses .PHP & HTML5 linked with javascript code to move the php variable containing the list of .mp3 file locations to the JS playlist. Audio player uses HTML5 uses the <audio> tag.
+
+
+Demo working versions: GitHubDemo
 https://www.snakebeings.org/GitHubDemo/index.php <br>
 File with all of the code<br>
 
