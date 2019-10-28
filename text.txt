@@ -1,0 +1,5 @@
+Text from the text.txt file<br>
+These sounds were recorded in Indonesia, influenced by the Gamelan Music heard there . <br>On this GitHubDemo excerpts have been included. <br>Hear the full versions at:<br> <a href="www.circuit47.com">www.circuit47.com</a>
+
+See the code repository at:<br>
+<a href="https://github.com/OVNI-CODE/Autoloading-MP3-player-PHP-HTML5">https://github.com/OVNI-CODE</a>

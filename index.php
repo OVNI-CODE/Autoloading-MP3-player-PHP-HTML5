@@ -3,7 +3,7 @@
 <head>
   <?php   $song = strip_tags($_GET[song]);
   
-  $pageName = "sound.php";
+  $pageName = "index.php";
 					$imagesize = 300;
 					$size = 0;
 					//Number of columns plus one
@@ -54,9 +54,12 @@ a:active {
 
 </head>
 <body>
-<h2>GitHubDemo files: Sound only</h2><br>
-<h4><a href="https://circuit47.com">www.circuit47.com</a></h4>
-<br>
+<h2>GitHubDemo files:</h2>
+<p><a href="download.php">download.php</a> (display a list and download any .mp3 files in this directory)    
+<p><a href="text.php">text.php</a> Read and display words from a .txt file   
+<p><a href="image.php">image.php</a> Display and resize any images from this directory
+<p><a href="sound.php">sound.php </a>Just the .mp3 sound player section of the code    
+<p><br>
   
   
   
@@ -95,12 +98,13 @@ a:active {
   			$fullpath = $iterator->getPathname();
   			$dirpath = explode( "/", $fullpath );
   			$dircurrent = dirname( $dirpath[ 3 ] );
-  			if ( $dirpath[ 8 ] == $pageName ) {
+  			if ( $dirpath[ 8 ] == "index.php" ) {
   				$albumname = "";
   			} else {
   				$albumname = $dirpath[ 8 ];
   			}
   			////DISPLAY THE SONGS
+  			//echo ("<A href = \"index.php?song=".$file."\">".$file."</a><br>");
   			//save to array for first play
   			$allfiles[ $howmanysongs ] = $file;
   			$howmanysongs++;
@@ -115,10 +119,12 @@ a:active {
   }
 
   ?>
-  
-  <br>
- 
+
 <br>
+</span><a href="
+  	https: //circuit47.com">+ OTHER sound series</a> <br>
+</p>
+	<br>
 <audio id="myAudio" controls width="300" height="32" autoplay>
   <source src="<?php echo($song2);?>" type="audio/mpeg">
 Your browser does not support the audio element. </audio>
@@ -158,7 +164,7 @@ if($song == ($howmanysongs - 1)){$song2 = 0;} else {$song2 = ($song + 1);}?>
 						$fullpath = $iterator->getPathname();
 						$dirpath = explode( "/", $fullpath );
 						$dircurrent = dirname( $dirpath[ 3 ] );
-						if ( $dirpath[ 8 ] == $pageName ) {
+						if ( $dirpath[ 8 ] == "index.php" ) {
 							$albumname = "";
 						} else {
 							$albumname = $dirpath[ 8 ];
@@ -169,7 +175,7 @@ if($song == ($howmanysongs - 1)){$song2 = 0;} else {$song2 = ($song + 1);}?>
 						if ( $howmanysongs + 1 == ( $song2 ) ) {
 							echo( "<span style=\"color: #F5070B\">" );
 						} else {
-							echo( "<A href = \"".$pageName."?song=" . $howmanysongs . "\">" );
+							echo( "<A href = \"index.php?song=" . $howmanysongs . "\">" );
 						}
 						////DISPLAY THE SONGS
 						echo( $file . "</a></span><br>" );
@@ -186,7 +192,7 @@ if($song == ($howmanysongs - 1)){$song2 = 0;} else {$song2 = ($song + 1);}?>
   <script>
 				//TRANSFERE THE PHP VARIABLE LIST OF SONGS $SONG2 INTO THE JAVASCRIPT VAR NUM AND var somany = $howmanysongs;
 				var num = <?php echo $song2 ?>;
-				
+				//var newUrl = 'index.php';
 
 
 				var aud = document.getElementById( "myAudio" );
@@ -199,8 +205,81 @@ if($song == ($howmanysongs - 1)){$song2 = 0;} else {$song2 = ($song + 1);}?>
 
 
 			<br><br>
-	
-	
-<br><br>
-<br>
+
+
+			<?php
+			/// START THE IMAGE READING FROM THE DIRECTORIES
+			$filetype = $_GET[ filetypes ];
+			$dh = opendir( "." );
+			$files = array();
+			while ( ( $file = readdir( $dh ) ) !== false ) {
+				$fileurl = $file;
+
+				if ( exif_imagetype( $file ) == IMAGETYPE_JPEG ) {
+					//check that the file is a jpg
+					array_push( $files, $file );
+				}
+			}
+			closedir( $dh );
+			//shuffle($files);// FOR RANDOM GALLERY
+			natcasesort( $files ); // FOR ordered GALLERY
+			//START THE LOOP TO PRINT FILES AND TABLE CONTENTS
+			//PORTRAIT FILES FIRST
+
+			foreach ( $files as $file ) {
+				// code to resize images
+				$size = getimagesize( $file );
+				$new_width = $imagesize;
+				if ( $new_width > $size[ 0 ] ) {
+					$new_width = $size[ 0 ];
+					$new_height = $size[ 1 ];
+				}
+
+				if ( $new_width < $size[ 0 ] ) {
+					// finds the width of image sets it to $new_width and creates a ratio to apply to the height
+					$ratio = ( $new_width / $size[ 0 ] );
+					$new_height = $ratio * $size[ 1 ];
+				}
+				//$new_height2= $ratio*$size[1];
+				if ( $new_height > $imagesize ) {
+					$new_height = $imagesize;
+					$width_ratio = ( $new_height / $size[ 1 ] );
+					$new_width = $width_ratio * $size[ 0 ];
+				}
+				//echo("<a href =\"images.php?price=".$price."&gallery=".$gallery."&item=".$file."\" id=\"".$file."\">");
+
+				echo( "<img src=\"" . $file . "\" width='" . $new_width . "' height='" . $new_height . "' ></a><br>" ); //print images found   
+				//print images found and put a <br> line break between each one and then display the filename below if required
+
+				//eCHO THE IMAGE NAME (minus the .jpg)-- comment out the line below if you don't want filenames printed
+				echo( "<STRONG><H3>" . substr( $file, 0, -4 ) . "</H2></strong>" );
+			}
+
+			//////////////end of image directory reader
+			?>
+			<br>
+			<?php
+			// PRINTS A TEXT FROM THE TEXT.TXT FILE INCLUDING ALL INFO ON THE ALBUM
+			if ( file_exists( 'text.txt' ) ) {
+				$lines = file( 'text.txt' );
+			} else {
+				$lines = 'This page will be updated shortly';
+			}
+
+			if ( file_exists( 'text.txt' ) ) {
+				// Loop through our array, show HTML source as HTML source; and line numbers too.
+				foreach ( $lines as $line_num => $line ) {
+					echo "</span> " . $line . "<br /></span>";
+				}
+			}
+			//htmlspecialchars($line) was above to stop hyper links
+			?>
+
+
+			<br>
+
+
+
+<h3>&nbsp;</h3>
+			<p>&nbsp;</p>
 </html>
