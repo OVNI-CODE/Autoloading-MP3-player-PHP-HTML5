@@ -3,7 +3,7 @@ Code snippets of an Mp3 player for use on websites<br><br><br>
 
   
 
-Check out the demo at https://www.snakebeings.org/GitHubDemo <br>
+Check out the demo at https://www.snakebeings.org/GitHubDemo/mp3_audio_player <br>
 
 <br>
 FEATURES: 
@@ -16,17 +16,17 @@ Uses .PHP & HTML5 linked with javascript code to move the php variable containin
 
 
 Demo working versions: GitHubDemo
-https://www.snakebeings.org/GitHubDemo/index.php <br>
+https://www.snakebeings.org/GitHubDemo/mp3_audio_player <br>
 File with all of the code<br>
 
 ##Code snippets for single functions
-https://www.snakebeings.org/GitHubDemo/sound.php <br>
+https://www.snakebeings.org/GitHubDemo/mp3_audio_player/sound.php <br>
 directory reader, autoplaylist and .mp3 player part of the code<br>
 
-https://www.snakebeings.org/GitHubDemo/image.php<br>
+https://www.snakebeings.org/GitHubDemo/mp3_audio_player/image.php<br>
 Directory reader to print all images found<br>
 
-https://www.snakebeings.org/GitHubDemo/text.php<br>
+https://www.snakebeings.org/GitHubDemo/mp3_audio_player/text.php<br>
 Reads and prints text from a .txt file in the remote directory named text.txt<br>
 
 <br>
@@ -46,6 +46,7 @@ text.php (reads and displays words from a file called text.txt located in the sa
 download.php (displays the filename and size in KB of any .mp3 files found in the same directory)<br>
 
 <br><br><br>
+Other demos:<br>
 https://www.snakebeings.org/GitHubDemo <br>
 
 
