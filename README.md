@@ -1,15 +1,15 @@
-# Autoloading-MP3-player-PHP-HTML5
->Code snippet of an Mp3 player for use on websites<br>
+# Autoloading-MP3-player-PHP-HTML5<br>
+Code snippet of an Mp3 player for use on websites<br>
 
   
 
-* Check out the demo at https://www.snakebeings.org/GitHubDemo <br>
+Check out the demo at https://www.snakebeings.org/GitHubDemo <br>
 
 
 FEATURES: 
 *auto reading of mp3 files in same directory to create playlist using PHP<br>
 *Displays a list of the sound files - generated automatically<br>
-* Starts a HTML5 audio player playing each song on the list<br>
+*Starts a HTML5 audio player playing each song on the list<br>
 *Update or add to the playlist by adding more .mp3 files into the directory on your website<br>
 *The filename, minus the .mp3 extention, is displayed as the track title<br>
 
@@ -31,14 +31,22 @@ https://www.snakebeings.org/GitHubDemo/text.php<br>
 Reads and prints text from a .txt file in the remote directory named text.txt<br>
 
 <br>
+INSTRUCTIONS:<br>
+Upload the following into the same directory on your website:<br>
+index.php, download.php, text.txt, the mp3 and image files of your choice <br>
+<br>
+Edit text.txt file with the description of the sounds<br>
+The play list for the mp3 player automatically adds any .mp3 files which are in the same directory<br>
+<br><br>
+If you just want certain functions or to cut and paste the code into an existing .php webpage:<br>
+<br><br>
+Choose the functions from the files: <br>
+audio.php (just the .mp3 player and auto playlist)<br>
+image.php (just displays any .jpg files in the same directory -you can choose the size of the image in the code)<br>
+text.php (reads and displays words from a file called text.txt located in the same directory)<br>
+download.php (gives a simple filename and size display of any .mp3 files found in the same directory)<br>
 
-* Try the code on your own site:
-** Upload all of the files into the same directory
-** Add image files and sound files of your own
-** Add a text.txt file with the description of the sounds
-
-
-
+<br><br><br>
 https://www.snakebeings.org/GitHubDemo <br>
 
 
